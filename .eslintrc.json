@@ -1,0 +1,87 @@
+{
+  "env":{
+     "browser":true,
+     "es2021":true
+  },
+  "extends":[
+     "plugin:react/recommended",
+     "airbnb",
+     "plugin:@typescript-eslint/recommended",
+     "plugin:prettier/recommended",
+     "next/core-web-vitals"
+  ],
+  "parser":"@typescript-eslint/parser",
+  "parserOptions":{
+     "ecmaFeatures":{
+        "jsx":true
+     },
+     "ecmaVersion":"latest",
+     "sourceType":"module"
+  },
+  "plugins":[
+     "react",
+     "@typescript-eslint",
+     "react-hooks",
+     "prettier"
+  ],
+  "rules":{
+    "@next/next/no-img-element": "off",
+    "import/no-cycle":"off",
+    "react/function-component-definition":"off",
+    "no-shadow":"off",
+    "react/no-unstable-nested-components": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "default-param-last": "off",
+     "func-names":"off",
+     "no-param-reassign":"off",
+     "react/no-danger":"off",
+     "no-console":"off",
+     "jsx-a11y/anchor-is-valid": "off",
+     "no-nested-ternary":"off",
+     "jsx-a11y/label-has-associated-control":"off",
+     "camelcase":"off",
+     "no-plusplus":"off",
+     "react/require-default-props":"off",
+     "react/jsx-props-no-spreading":"off",
+     "no-use-before-define":"off",
+     "jsx-a11y/control-has-associated-label":"off",
+     "import/no-extraneous-dependencies":"off",
+     "react/jsx-no-bind":"off",
+     "@typescript-eslint/no-var-requires":"off",
+     "prettier/prettier":[
+        "error",
+        {
+           "endOfLine":"auto"
+        }
+     ],
+     "import/no-duplicates":"off",
+     "no-unused-expressions":"off",
+     "eslintimport/no-unresolved":"off",
+     "import/prefer-default-export":"off",
+     "react/jsx-filename-extension":[
+        1,
+        {
+           "extensions":[
+              ".tsx",
+              ".jsx"
+           ]
+        }
+     ],
+     "react/react-in-jsx-scope":"off",
+     "import/no-unresolved":"off",
+     "import/extensions":[
+        "error",
+        "ignorePackages",
+        {
+           "ts":"never",
+           "tsx":"never"
+        }
+     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
