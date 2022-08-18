@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
-import { Box, Button, Divider, Flex, HStack, Text, VStack } from '@chakra-ui/react';
-import { ChatIcon, StarIcon } from '@chakra-ui/icons';
-import { THeaderPost, TPost } from '../..';
+import { Divider, Text, VStack } from '@chakra-ui/react';
+import { TPost } from '../../types';
 import { Container } from '../Container';
 import { HeaderPost } from '../HeaderPost';
 import { FooterPost } from '../FooterPost';

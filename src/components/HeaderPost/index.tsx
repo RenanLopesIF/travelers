@@ -1,6 +1,6 @@
 import { Avatar, Badge, Box, Flex, Text } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
-import { THeaderPost } from '../..';
+import { THeaderPost } from '../../types';
 
 export function HeaderPost({
   userName = 'Usuário',
