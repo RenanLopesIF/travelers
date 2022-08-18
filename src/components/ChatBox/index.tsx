@@ -14,13 +14,13 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 import React, { useId } from 'react';
-import { ChatMessage } from '../ChatMessage';
+import ChatMessage from '../ChatMessage';
 
 interface ChatBoxProps {
   userImage: string;
 }
 
-export function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
+function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
   const reactID = useId();
   const colors = theme.colors;
 
@@ -106,3 +106,5 @@ export function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
     </Accordion>
   );
 }
+
+export default ChatBox;

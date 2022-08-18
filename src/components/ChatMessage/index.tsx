@@ -7,7 +7,7 @@ interface ChatMessageProps {
   message: string;
 }
 
-export function ChatMessage({
+function ChatMessage({
   userImage,
   userName,
   message,
@@ -28,3 +28,5 @@ export function ChatMessage({
     </HStack>
   );
 }
+
+export default ChatMessage;

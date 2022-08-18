@@ -1,10 +1,7 @@
 import { Flex, FlexProps, theme } from '@chakra-ui/react';
 import React, { PropsWithChildren, ReactElement } from 'react';
 
-export function Container({
-  children,
-  ...props
-}: PropsWithChildren<FlexProps>): ReactElement {
+function Container({ children, ...props }: PropsWithChildren<FlexProps>): ReactElement {
   const colors = theme.colors;
   return (
     <Flex
@@ -17,3 +14,5 @@ export function Container({
     </Flex>
   );
 }
+
+export default Container;

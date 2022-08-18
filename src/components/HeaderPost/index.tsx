@@ -2,7 +2,7 @@ import { Avatar, Badge, Box, Flex, Text } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
 import { THeaderPost } from '../../types';
 
-export function HeaderPost({
+function HeaderPost({
   userName = 'Usuário',
   userImage = 'https://bit.ly/sage-adebayo',
   userType,
@@ -23,3 +23,5 @@ export function HeaderPost({
     </Flex>
   );
 }
+
+export default HeaderPost;

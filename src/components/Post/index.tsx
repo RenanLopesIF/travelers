@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import { Divider, Text, VStack } from '@chakra-ui/react';
 import { TPost } from '../../types';
-import { Container } from '../Container';
-import { HeaderPost } from '../HeaderPost';
-import { FooterPost } from '../FooterPost';
+import Container from '../Container';
+import HeaderPost from '../HeaderPost';
+import FooterPost from '../FooterPost';
 
-export function Post({
+function Post({
   content,
   description,
   userName,
@@ -28,4 +28,4 @@ export function Post({
     </Container>
   );
 }
-// "https://bit.ly/sage-adebayo"
+export default Post;
