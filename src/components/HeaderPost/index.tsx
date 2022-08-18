@@ -1,13 +1,19 @@
 import { Avatar, Badge, Box, Flex, Text } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
-import { THeaderPost } from '../../types';
+
+export interface IHeaderPost {
+  userName: string;
+  userImage: string;
+  userType: 'Passageiro' | 'Motorista';
+  description: string;
+}
 
 function HeaderPost({
   userName = 'Usuário',
   userImage = 'https://bit.ly/sage-adebayo',
   userType,
   description,
-}: THeaderPost): ReactElement {
+}: IHeaderPost): ReactElement {
   return (
     <Flex>
       <Avatar src={userImage} />

@@ -1,9 +1,12 @@
 import React, { ReactElement } from 'react';
 import { Divider, Text, VStack } from '@chakra-ui/react';
-import { TPost } from '../../types';
 import Container from '../Container';
-import HeaderPost from '../HeaderPost';
+import HeaderPost, { IHeaderPost } from '../HeaderPost';
 import FooterPost from '../FooterPost';
+
+export interface TPost extends IHeaderPost {
+  content: string;
+}
 
 function Post({
   content,
