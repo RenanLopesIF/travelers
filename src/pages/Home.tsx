@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { Flex, VStack } from '@chakra-ui/react';
 import { TPost } from '..';
 import { Container } from '../components/Container';
 import { Post } from '../components/Post';
 
-function Home() {
+export function Home() {
+  const reactID = useId();
+
   const posts = [
     {
       userName: 'Renan',
@@ -22,13 +24,30 @@ function Home() {
       content:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nesciunt a ab omnis sequi, corrupti vero cumque aspernatur quam vel impedit quasi vitae sapiente repudiandae maiores dolor ratione in dolorum!',
     },
+    {
+      userName: 'Rai',
+      userImage: 'https://bit.ly/sage-adebayo',
+      userType: 'Motorista',
+      description: 'Araçuaí',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nesciunt a ab omnis sequi, corrupti vero cumque aspernatur quam vel impedit quasi vitae sapiente repudiandae maiores dolor ratione in dolorum!',
+    },
+    {
+      userName: 'Rai',
+      userImage: 'https://bit.ly/sage-adebayo',
+      userType: 'Passageiro',
+      description: 'Araçuaí',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nesciunt a ab omnis sequi, corrupti vero cumque aspernatur quam vel impedit quasi vitae sapiente repudiandae maiores dolor ratione in dolorum!',
+    },
   ] as Array<TPost>;
   return (
     <Flex gap={5} px="20%" py={5}>
       <Container w="25%" h="100"></Container>
       <VStack flex={1}>
-        {posts.map((data) => (
+        {posts.map((data, idx) => (
           <Post
+            key={`${data.content}-${reactID}-${idx}`}
             content={data.content}
             description={data.description}
             userImage={data.userImage}
@@ -40,4 +59,3 @@ function Home() {
     </Flex>
   );
 }
-export default Home;
