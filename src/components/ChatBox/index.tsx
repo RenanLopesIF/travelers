@@ -100,24 +100,6 @@ export function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
                 />
               </ListItem>
             ))}
-            {messages.map((message) => (
-              <ListItem key={`${message.userName}${reactID}`}>
-                <ChatMessage
-                  userImage={message.userImage}
-                  userName={message.userName}
-                  message={message.message}
-                />
-              </ListItem>
-            ))}
-            {messages.map((message) => (
-              <ListItem key={`${message.userName}${reactID}`}>
-                <ChatMessage
-                  userImage={message.userImage}
-                  userName={message.userName}
-                  message={message.message}
-                />
-              </ListItem>
-            ))}
           </List>
         </AccordionPanel>
       </AccordionItem>
