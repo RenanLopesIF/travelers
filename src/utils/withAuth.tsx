@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react';
-import { ChatBox } from '../components/ChatBox';
-import { Header } from '../components/Header';
+import ChatBox from '../components/ChatBox';
+import Header from '../components/Header';
 
 export default function withAuth(WrapperComponent: ElementType) {
   function Wrapper(props: any): React.ReactElement {
