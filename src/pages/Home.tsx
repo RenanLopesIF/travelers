@@ -1,10 +1,11 @@
 import React, { useId } from 'react';
 import { Flex, VStack } from '@chakra-ui/react';
-import { TPost } from '..';
+import { TPost } from '../types';
 import { Container } from '../components/Container';
 import { Post } from '../components/Post';
+import withAuth from '../utils/withAuth';
 
-export function Home() {
+function Home() {
   const reactID = useId();
 
   const posts = [
@@ -59,3 +60,5 @@ export function Home() {
     </Flex>
   );
 }
+
+export default withAuth(Home);
