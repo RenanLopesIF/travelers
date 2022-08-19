@@ -25,7 +25,7 @@ function Header(): ReactElement {
       justifyContent="space-between"
     >
       <HStack>
-        <Image width="40px" height="40px" src="../../../resources/logo.png" />
+        <Image w="40px" h="40px" src="../../../resources/logo_icon_blue.png" />
 
         <InputGroup>
           <InputLeftElement
