@@ -20,7 +20,7 @@ function ChatMessage({
           {userName}
         </Text>
 
-        <Text fontSize={12} noOfLines={2} mb={3}>
+        <Text color="gray.600" fontSize={12} noOfLines={2} mb={3}>
           {message}
         </Text>
         <Divider h="1px" opacity={0.3} style={{ marginTop: '3px' }} />

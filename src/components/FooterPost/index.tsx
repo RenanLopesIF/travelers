@@ -15,10 +15,10 @@ function FooterPost(): ReactElement {
         </Flex>
       </Flex>
       <Flex gap={3}>
-        <Button height={8} leftIcon={<StarIcon />}>
+        <Button colorScheme="primary" height={8} leftIcon={<StarIcon />}>
           Curtir
         </Button>
-        <Button height={8} leftIcon={<ChatIcon />}>
+        <Button colorScheme="gray" height={8} leftIcon={<ChatIcon />}>
           Comentários
         </Button>
       </Flex>

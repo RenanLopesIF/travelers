@@ -20,7 +20,7 @@ function Header(): ReactElement {
       w="100%"
       bgColor="white"
       h="50px"
-      borderBottom={`1px solid ${colors.blackAlpha[200]}`}
+      borderBottom={`1px solid ${colors.gray[200]}`}
       flexDir="row"
       justifyContent="space-between"
     >
@@ -30,14 +30,14 @@ function Header(): ReactElement {
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
-            children={<SearchIcon color={colors.black[300]} />}
+            children={<SearchIcon color="black.700" />}
           />
           <Input type="tel" placeholder="Pesquisar" />
         </InputGroup>
       </HStack>
       <HStack spacing="10px">
-        <ChatIcon width="25px" height="25px" color={colors.black[300]} />
-        <BellIcon width="25px" height="25px" color={colors.black[300]} />
+        <ChatIcon width="25px" height="25px" color="black.700" />
+        <BellIcon width="25px" height="25px" color="black.700" />
         <Divider px="3px" orientation="vertical" />
         <Avatar size="sm" name="Profile" src="../../../resources/profile.webp" />
       </HStack>

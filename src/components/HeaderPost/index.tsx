@@ -20,7 +20,7 @@ function HeaderPost({
       <Box ml="3">
         <Text fontWeight="bold">
           {userName}
-          <Badge ml="1" colorScheme={userType === 'Motorista' ? 'yellow' : 'cyan'}>
+          <Badge ml="1" colorScheme={userType === 'Motorista' ? 'yellow' : 'primary'}>
             {userType}
           </Badge>
         </Text>

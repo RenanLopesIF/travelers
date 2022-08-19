@@ -52,7 +52,7 @@ function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
       right={0}
       zIndex={99}
       borderTopRadius={8}
-      border={`1px solid ${colors.blackAlpha[300]}`}
+      border={`1px solid ${colors.gray[300]}`}
       bgColor="white"
       allowToggle
       w="18em"
@@ -75,7 +75,7 @@ function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
         <Box position={'sticky'} top={0} bg="white" zIndex={2}>
           <h2>
             <AccordionButton
-              borderBottom={`1px solid ${colors.blackAlpha[200]}`}
+              borderBottom={`1px solid ${colors.gray[200]}`}
               borderBottomWidth="2px"
             >
               <HStack spacing={3} flex="1" textAlign="left">
