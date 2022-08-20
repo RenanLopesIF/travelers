@@ -1,9 +1,10 @@
 import { Box, Container, HStack } from '@chakra-ui/react';
-import React from 'react';
+import React, { useId } from 'react';
 import ChatBox from '../ChatBox';
 import ChatPrivateBox from '../ChatPrivateBox';
 
 function ChatContainer(): React.ReactElement {
+  const reactId = useId();
   const chatList = [
     {
       targetName: 'Roberto',
@@ -21,7 +22,7 @@ function ChatContainer(): React.ReactElement {
     >
       <ChatBox userImage="../../../resources/profile.webp" />
       {chatList.map((chat) => (
-        <Box pr={2}>
+        <Box pr={2} key={`${reactId}-${chat.targetName}`}>
           <ChatPrivateBox targetName={chat.targetName} targetImage={chat.targetImage} />
         </Box>
       ))}

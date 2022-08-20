@@ -68,7 +68,14 @@ function ChatPrivateBox({
     >
       <AccordionItem border="none">
         <Box position={'sticky'} top={0} bg="white" zIndex={2}>
-          <ChatHeader image={targetImage} label={targetName} />
+          <ChatHeader
+            image={targetImage}
+            label={targetName}
+            hasCloseButton
+            onPressCloseButton={() => {
+              console.log('closing chat');
+            }}
+          />
         </Box>
 
         <AccordionPanel pb="4" pr="4">

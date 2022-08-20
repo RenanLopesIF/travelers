@@ -4,17 +4,26 @@ import {
   AccordionIcon,
   Avatar,
   AvatarBadge,
+  CloseButton,
   HStack,
   Text,
   theme,
 } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
 
 interface IChatHeaderProps {
   image: string;
   label: string;
+  hasCloseButton?: boolean;
+  onPressCloseButton?: () => void;
 }
 
-function ChatHeader({ image, label }: IChatHeaderProps): React.ReactElement {
+function ChatHeader({
+  image,
+  label,
+  hasCloseButton,
+  onPressCloseButton,
+}: IChatHeaderProps): React.ReactElement {
   const colors = theme.colors;
 
   return (
@@ -29,7 +38,11 @@ function ChatHeader({ image, label }: IChatHeaderProps): React.ReactElement {
           </Avatar>
           <Text>{label}</Text>
         </HStack>
-        <AccordionIcon />
+        {hasCloseButton ? (
+          <CloseIcon boxSize={2.5} onClick={onPressCloseButton} />
+        ) : (
+          <AccordionIcon />
+        )}
       </AccordionButton>
     </span>
   );
