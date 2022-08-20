@@ -1,3 +1,4 @@
+import React, { useId } from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -7,7 +8,6 @@ import {
   ListItem,
   theme,
 } from '@chakra-ui/react';
-import React from 'react';
 import ChatHeader from '../ChatHeader';
 import ChatPrivateMessageBox, {
   IChatPrivateMessageBoxProps,
@@ -23,6 +23,7 @@ function ChatPrivateBox({
   targetName,
 }: IChatPrivateBox): React.ReactElement {
   const colors = theme.colors;
+  const reactID = useId();
 
   const messages = [
     {
@@ -72,23 +73,8 @@ function ChatPrivateBox({
 
         <AccordionPanel pb="4" pr="4">
           <List spacing={1} overflowY="auto">
-            {messages.map((msg) => (
-              <ListItem>
-                <ChatPrivateMessageBox message={msg.message} type={msg.type} />
-              </ListItem>
-            ))}
-            {messages.map((msg) => (
-              <ListItem>
-                <ChatPrivateMessageBox message={msg.message} type={msg.type} />
-              </ListItem>
-            ))}
-            {messages.map((msg) => (
-              <ListItem>
-                <ChatPrivateMessageBox message={msg.message} type={msg.type} />
-              </ListItem>
-            ))}
-            {messages.map((msg) => (
-              <ListItem>
+            {messages.map((msg, idx) => (
+              <ListItem key={`${reactID}-${idx}`}>
                 <ChatPrivateMessageBox message={msg.message} type={msg.type} />
               </ListItem>
             ))}
