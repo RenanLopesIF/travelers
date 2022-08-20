@@ -1,19 +1,14 @@
+import React, { useId } from 'react';
 import {
   Accordion,
-  AccordionButton,
-  AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Avatar,
-  AvatarBadge,
   Box,
   theme,
-  Text,
-  HStack,
   List,
   ListItem,
 } from '@chakra-ui/react';
-import React, { useId } from 'react';
+import ChatHeader from '../ChatHeader';
 import ChatMessage from '../ChatMessage';
 
 interface ChatBoxProps {
@@ -26,31 +21,30 @@ function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
 
   const messages = [
     {
-      userName: 'Ana',
+      userName: 'AnaAnaaaaaaaaaaaaaaaaaaaaaaaa',
       userImage: '../../../resources/profile.webp',
+      time: 1660931389099,
       message:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorum quam quia consectetur sint ratione ab maxime ipsam fugiat mollitia? Nobis voluptates explicabo odit, sapiente omnis voluptas doloremque veniam magnam.',
     },
     {
       userName: 'Roberto',
       userImage: '',
+      time: 1650931389099,
       message:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iste excepturi, magni pariatur officiis dolorem deleniti soluta omnis accusamus molestias inventore voluptatum sequi impedit, aliquid molestiae magnam! Quibusdam, quas tempora.',
     },
     {
       userName: 'Rapha',
       userImage: '',
+      time: 1560931389099,
       message: 'Bom dia!',
     },
   ];
 
   return (
     <Accordion
-      maxHeight="80%"
-      position="fixed"
-      bottom={0}
-      right={0}
-      zIndex={99}
+      maxHeight="md"
       borderTopRadius={8}
       border={`1px solid ${colors.gray[300]}`}
       bgColor="white"
@@ -68,32 +62,19 @@ function ChatBox({ userImage }: ChatBoxProps): React.ReactElement {
           bg: `gray.400`,
         },
       }}
-      style={{ scrollbarColor: '#f0c' }}
       overflowY="auto"
     >
       <AccordionItem border="none">
         <Box position={'sticky'} top={0} bg="white" zIndex={2}>
-          <h2>
-            <AccordionButton
-              borderBottom={`1px solid ${colors.gray[200]}`}
-              borderBottomWidth="2px"
-            >
-              <HStack spacing={3} flex="1" textAlign="left">
-                <Avatar size="sm" src={userImage}>
-                  <AvatarBadge boxSize="1.25em" bg="green.500" />
-                </Avatar>
-                <Text>Conversas</Text>
-              </HStack>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
+          <ChatHeader image={userImage} label="Conversas" />
         </Box>
 
-        <AccordionPanel pb={4} pr="0">
+        <AccordionPanel pb="4" pr="4">
           <List overflowY="auto">
             {messages.map((message) => (
               <ListItem key={`${message.userName}${reactID}`}>
                 <ChatMessage
+                  datetime={message.time}
                   userImage={message.userImage}
                   userName={message.userName}
                   message={message.message}

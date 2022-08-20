@@ -1,6 +1,6 @@
 import React, { ElementType } from 'react';
-import ChatBox from '../components/ChatBox';
 import Header from '../components/Header';
+import ChatContainer from '../components/ChatContainer';
 
 export default function withAuth(WrapperComponent: ElementType) {
   function Wrapper(props: any): React.ReactElement {
@@ -14,7 +14,7 @@ export default function withAuth(WrapperComponent: ElementType) {
       <>
         <Header />
         <WrapperComponent {...props} />;
-        <ChatBox userImage="../../../resources/profile.webp" />
+        <ChatContainer />
       </>
     );
   }
