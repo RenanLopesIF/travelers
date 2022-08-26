@@ -13,14 +13,18 @@ import ChatPrivateMessageBox, {
   IChatPrivateMessageBoxProps,
 } from '../ChatPrivateMessageBox';
 
-interface IChatPrivateBox {
+export interface IChatPrivateBox {
   targetImage: string;
   targetName: string;
+  targetId: number;
+  handleChatList: () => void;
 }
 
 function ChatPrivateBox({
   targetImage,
   targetName,
+  targetId,
+  handleChatList,
 }: IChatPrivateBox): React.ReactElement {
   const colors = theme.colors;
   const reactID = useId();
@@ -46,6 +50,7 @@ function ChatPrivateBox({
 
   return (
     <Accordion
+      onClick={handleChatList}
       maxHeight="sm"
       borderTopRadius={8}
       border={`1px solid ${colors.gray[300]}`}
@@ -73,7 +78,7 @@ function ChatPrivateBox({
             label={targetName}
             hasCloseButton
             onPressCloseButton={() => {
-              console.log('closing chat');
+              console.log('closing chat', targetId);
             }}
           />
         </Box>

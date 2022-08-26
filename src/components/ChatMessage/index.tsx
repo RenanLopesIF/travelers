@@ -1,12 +1,14 @@
 import React from 'react';
 import { Avatar, Divider, HStack, Text, VStack } from '@chakra-ui/react';
 import moment from 'moment';
+import { THandleChatList } from '../ChatContainer';
 
 interface ChatMessageProps {
   userImage: string;
   userName: string;
   message: string;
   datetime: string | number;
+  onClick: () => void;
 }
 
 function ChatMessage({
@@ -14,13 +16,21 @@ function ChatMessage({
   userName,
   message,
   datetime,
+  onClick,
 }: ChatMessageProps): React.ReactElement {
   const dateFormat = 'MMMM Do YYYY, h:mm:ss a';
   const curDate = moment(datetime).format(dateFormat);
   const date = moment(curDate, dateFormat).fromNow();
 
   return (
-    <HStack mb={3} width="full" overflowX="hidden">
+    <HStack
+      mb={3}
+      width="full"
+      overflowX="hidden"
+      onClick={() => {
+        onClick();
+      }}
+    >
       <Avatar size="sm" src={userImage} />
       <VStack alignItems="flex-start" ml="30" flex={1} spacing={0}>
         <HStack w="full" pr={5} alignItems="center" spacing={1}>
