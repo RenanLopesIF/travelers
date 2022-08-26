@@ -24,6 +24,7 @@ function ChatMessage({
 
   return (
     <HStack
+      _hover={{ opacity: 0.9 }}
       mb={3}
       width="full"
       overflowX="hidden"

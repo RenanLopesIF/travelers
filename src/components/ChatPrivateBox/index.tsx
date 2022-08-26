@@ -12,6 +12,7 @@ import ChatHeader from '../ChatHeader';
 import ChatPrivateMessageBox, {
   IChatPrivateMessageBoxProps,
 } from '../ChatPrivateMessageBox';
+import ChatPrivateBoxFooter from '../ChatPrivateBoxFooter';
 
 export interface IChatPrivateBox {
   targetImage: string;
@@ -46,29 +47,28 @@ function ChatPrivateBox({
       message: 'Bem, e você?',
       type: 'received',
     },
+    {
+      message: 'Bem, e você?',
+      type: 'received',
+    },
+    {
+      message: 'Bem, e você?',
+      type: 'received',
+    },
+    {
+      message: 'Bem, e você?',
+      type: 'received',
+    },
   ] as Array<IChatPrivateMessageBoxProps>;
 
   return (
     <Accordion
-      onClick={handleChatList}
       maxHeight="sm"
       borderTopRadius={8}
       border={`1px solid ${colors.gray[300]}`}
       bgColor="white"
       allowToggle
-      w="16em"
-      sx={{
-        '&::-webkit-scrollbar': {
-          w: '1',
-        },
-        '&::-webkit-scrollbar-track': {
-          w: '1',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          borderRadius: '10',
-          bg: `gray.400`,
-        },
-      }}
+      w="18em"
       overflowY="auto"
     >
       <AccordionItem border="none">
@@ -77,20 +77,37 @@ function ChatPrivateBox({
             image={targetImage}
             label={targetName}
             hasCloseButton
-            onPressCloseButton={() => {
-              console.log('closing chat', targetId);
-            }}
+            onPressCloseButton={handleChatList}
           />
         </Box>
 
-        <AccordionPanel pb="4" pr="4">
-          <List spacing={1} overflowY="auto">
+        <AccordionPanel p="0">
+          <List
+            sx={{
+              '&::-webkit-scrollbar': {
+                w: '1',
+              },
+              '&::-webkit-scrollbar-track': {
+                w: '1',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                borderRadius: '10',
+                bg: `gray.400`,
+              },
+            }}
+            h="14em"
+            spacing={1}
+            overflowY="auto"
+            px="4"
+            py="0"
+          >
             {messages.map((msg, idx) => (
               <ListItem key={`${reactID}-${idx}`}>
                 <ChatPrivateMessageBox message={msg.message} type={msg.type} />
               </ListItem>
             ))}
           </List>
+          <ChatPrivateBoxFooter />
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
