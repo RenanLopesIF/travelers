@@ -17,16 +17,22 @@ function FooterPost({
   totalComments = 0,
   liked,
 }: FooterPostProps): ReactElement {
+  const [actionsValue, setActionValue] = useState<number>(totalActions);
   const [isLiked, setIsLiked] = useState<boolean>(liked);
   function handleIsLiked() {
     setIsLiked((prev) => !prev);
+    if (isLiked) {
+      setActionValue((prev) => prev - 1);
+    } else {
+      setActionValue((prev) => prev + 1);
+    }
   }
   return (
     <Box w="full">
       <Flex justifyContent="space-between" mt={1} fontSize={12} width="100%">
         <Flex alignItems={'center'}>
           <StarIcon color={isLiked ? 'primary.500' : 'black'} />
-          <Text ml="1">{totalActions}</Text>
+          <Text ml="1">{actionsValue}</Text>
         </Flex>
         <Flex>
           <Text>{totalComments} comentários</Text>

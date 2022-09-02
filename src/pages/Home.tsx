@@ -1,14 +1,29 @@
-import React, { useId } from 'react';
-import { Box, Divider, Flex, Text, VStack } from '@chakra-ui/react';
+import React, { BaseSyntheticEvent, useId, useState } from 'react';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  HStack,
+  Input,
+  Radio,
+  RadioGroup,
+  Text,
+  Textarea,
+  VStack,
+} from '@chakra-ui/react';
 import Container from '../components/Container';
 import Post, { TPost } from '../components/Post';
 import withAuth from '../utils/withAuth';
 import HeaderPost from '../components/HeaderPost';
+import { colors } from '../utils/theme';
 
 function Home() {
   const reactID = useId();
 
-  const posts = [
+  const [inputValue, setInputValue] = useState<string>('');
+  const [radioValue, setRadioValue] = useState<'opn' | 'anun'>('opn');
+  const [posts, setPosts] = useState<Array<TPost>>([
     {
       userName: 'Daniel',
       userImage: 'https://bit.ly/prosper-baba',
@@ -17,7 +32,6 @@ function Home() {
       userType: 'Opinião',
       description: 'Francisco Badaró',
       liked: false,
-      occurrence: Date.now(),
       content:
         'Não gostei da inauguração do novo mercado não. Achei as comidas muito frias e teve muita politicagem.',
     },
@@ -29,7 +43,6 @@ function Home() {
       userType: 'Anúncio',
       description: 'Berilondres',
       liked: false,
-      occurrence: new Date('2023-02-31').getTime(),
       content:
         'Inauguração de um partido político com o principal objetivo de reestabelecer o ímperio no Brasil e Berilondre. Dia 31 de fevereiro de 2023.',
     },
@@ -41,7 +54,6 @@ function Home() {
       userType: 'Anúncio',
       description: 'Araçuaí',
       liked: true,
-      occurrence: new Date('2022-09-13').getTime(),
       content:
         'Estrei promovendo um festa no clube no dia 13/09/2022 às 19:30. Vai ter um samba, sertanejo e axé ao vivo, e claro uma carne assada. O valor do ingresso será R$ 30,00',
     },
@@ -54,7 +66,6 @@ function Home() {
       userType: 'Anúncio',
       description: 'Itaobim',
       liked: false,
-      occurrence: new Date('2022-09-14').getTime(),
       content:
         'Protesto contra redução da verba para eventos culturais em frente a Prefeitura Municipal às 10:00 no dia 14/09/2022',
     },
@@ -66,11 +77,37 @@ function Home() {
       totalComments: 0,
       userType: 'Opinião',
       description: 'Araçuaí',
-      occurrence: Date.now(),
       content: 'O show no clube ontem estava top demais. Só música boa.',
       liked: false,
     },
-  ] as unknown as Array<TPost>;
+  ]);
+
+  function changeInputValue(ev: BaseSyntheticEvent) {
+    setInputValue(ev.currentTarget.value);
+  }
+
+  function changeRadioValue(value: 'opn' | 'anun') {
+    setRadioValue(value);
+  }
+
+  function submitPost() {
+    setPosts((prev) => [
+      {
+        userName: 'Renan Lopes',
+        content: inputValue,
+        liked: false,
+        description: 'Francisco Badaró',
+        totalActions: 0,
+        totalComments: 0,
+        userImage: '../../resources/profile.webp',
+        userType: radioValue === 'anun' ? 'Anúncio' : 'Opinião',
+      },
+      ...prev,
+    ]);
+  }
+
+  const lastPost = posts.filter((post) => post.liked).splice(-1, 1)[0];
+
   return (
     <Flex gap={5} px="20%" py={5}>
       <Box w="25%" h="min-content">
@@ -80,10 +117,10 @@ function Home() {
         <Container p={3}>
           <VStack alignItems="start" w="full">
             <HeaderPost
-              description={posts[2].description}
-              userImage={posts[2].userImage}
-              userName={posts[2].userName}
-              userType={posts[2].userType}
+              description={lastPost.description}
+              userImage={lastPost.userImage}
+              userName={lastPost.userName}
+              userType={lastPost.userType}
             />
             <Divider />
             <Text>{posts[1].content}</Text>
@@ -91,6 +128,42 @@ function Home() {
         </Container>
       </Box>
       <VStack flex={1}>
+        <Container w="full">
+          <VStack w="full">
+            <Textarea
+              value={inputValue}
+              onChange={changeInputValue}
+              p={2}
+              borderY="1px"
+              borderColor="gray.200"
+              w="full"
+              _focus={{
+                borderTop: `2px solid ${colors.primary[500]}`,
+              }}
+              borderRadius={0}
+              variant="unstyled"
+              placeholder="Escreva uma mensagem"
+              resize="none"
+              minH="90px"
+            />
+            <HStack w="full" justifyContent="space-between" p="1">
+              <RadioGroup
+                size="sm"
+                defaultValue="opn"
+                value={radioValue}
+                onChange={changeRadioValue}
+              >
+                <HStack spacing="24px">
+                  <Radio value="opn">Opinião</Radio>
+                  <Radio value="anun">Anúncio</Radio>
+                </HStack>
+              </RadioGroup>
+              <Button onClick={submitPost} colorScheme="primary" size="sm">
+                Enviar
+              </Button>
+            </HStack>
+          </VStack>
+        </Container>
         {posts.map((data, idx) => (
           <Post
             liked={data.liked}
