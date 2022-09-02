@@ -54,7 +54,11 @@ function Login(): React.ReactElement {
       <Container w="md" p="10" justifyContent="center">
         <VStack alignItems="center">
           <Box>
-            <Image src="../../resources/logo.png" />
+            <Image
+              width="215px"
+              height="100%"
+              src="../../resources/partyplace/logo.png"
+            />
           </Box>
           <VStack spacing={4} flex={1} w="full" py={4}>
             <Input ref={inputUserRef} colorScheme="primary" placeholder="Usuário" />

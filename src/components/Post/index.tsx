@@ -6,6 +6,9 @@ import FooterPost from '../FooterPost';
 
 export interface TPost extends IHeaderPost {
   content: string;
+  totalComments: number;
+  totalActions: number;
+  liked: boolean;
 }
 
 function Post({
@@ -14,10 +17,13 @@ function Post({
   userName,
   userType,
   userImage,
+  totalComments,
+  totalActions,
+  liked,
 }: TPost): ReactElement {
   return (
     <Container minW="100%" p="3">
-      <VStack alignItems="start">
+      <VStack alignItems="start" w="full">
         <HeaderPost
           description={description}
           userImage={userImage}
@@ -26,7 +32,12 @@ function Post({
         />
         <Divider />
         <Text>{content}</Text>
-        <FooterPost />
+        <FooterPost
+          liked={liked}
+          totalActions={totalActions}
+          totalComments={totalComments}
+          postType={userType}
+        />
       </VStack>
     </Container>
   );

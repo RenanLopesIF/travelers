@@ -4,7 +4,7 @@ import React, { ReactElement } from 'react';
 export interface IHeaderPost {
   userName: string;
   userImage: string;
-  userType: 'Passageiro' | 'Motorista';
+  userType: 'Opinião' | 'Anúncio';
   description: string;
 }
 
@@ -20,7 +20,7 @@ function HeaderPost({
       <Box ml="3">
         <Text fontWeight="bold">
           {userName}
-          <Badge ml="1" colorScheme={userType === 'Motorista' ? 'yellow' : 'primary'}>
+          <Badge ml="1" colorScheme={userType === 'Anúncio' ? 'yellow' : 'primary'}>
             {userType}
           </Badge>
         </Text>
