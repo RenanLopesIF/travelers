@@ -25,19 +25,17 @@ function ChatBox({ userImage, handleChatList }: ChatBoxProps): React.ReactElemen
   const messages = [
     {
       userId: 1,
-      userName: 'AnaAnaaaaaaaaaaaaaaaaaaaaaaaa',
+      userName: 'Ana',
       userImage: '../../../resources/profile.webp',
       time: 1660931389099,
-      message:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorum quam quia consectetur sint ratione ab maxime ipsam fugiat mollitia? Nobis voluptates explicabo odit, sapiente omnis voluptas doloremque veniam magnam.',
+      message: 'E você vai?',
     },
     {
       userId: 2,
       userName: 'Roberto',
       userImage: '',
       time: 1650931389099,
-      message:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iste excepturi, magni pariatur officiis dolorem deleniti soluta omnis accusamus molestias inventore voluptatum sequi impedit, aliquid molestiae magnam! Quibusdam, quas tempora.',
+      message: 'Mais tarde um pouco',
     },
     {
       userId: 3,

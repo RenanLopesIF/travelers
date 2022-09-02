@@ -68,7 +68,7 @@ function Header(): ReactElement {
                 alt="Fluffybuns the destroyer"
                 mr="12px"
               />
-              <span>Vitin do Pinei convidou você para um evento</span>
+              <span>Vitin do Pineu convidou você para um evento</span>
             </MenuItem>
             <MenuItem minH="48px" borderBottom="1px" borderColor="gray.100">
               <Image
